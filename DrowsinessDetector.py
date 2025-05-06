@@ -21,7 +21,6 @@ def EAR(drivereye):
 
 def MOR(drivermouth):
     point   = dist.euclidean(drivermouth[0], drivermouth[6])
-    # compute the euclidean distances between the vertical
     point1  = dist.euclidean(drivermouth[2], drivermouth[10])
     point2  = dist.euclidean(drivermouth[4], drivermouth[8])
     # taking average
