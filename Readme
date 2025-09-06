@@ -1,91 +1,81 @@
 Driver Drowsiness Monitoring System
+==================================
 
 This project is a Driver Drowsiness Detection System built with Python, OpenCV, Dlib, and Tkinter. It uses visual behavior analysis (eye blinking and yawning detection) combined with machine learning facial landmark detection to monitor driver alertness in real time through a webcam.
 
-🚀 Features
+----------------------------------
+Features
+----------------------------------
+- Real-time monitoring using webcam.
+- Eye Aspect Ratio (EAR) calculation to detect prolonged eye closure.
+- Mouth Aspect Ratio (MAR) calculation to detect yawning.
+- Alerts for:
+  - Eyes closed for several consecutive frames.
+  - Yawning beyond a threshold.
+- GUI built with Tkinter for starting the monitoring process.
+- Visual overlays showing EAR/MAR values and alerts on the live feed.
 
-Real-time monitoring using webcam.
-
-Eye Aspect Ratio (EAR) calculation to detect prolonged eye closure.
-
-Mouth Aspect Ratio (MAR) calculation to detect yawning.
-
-Alerts for:
-
-Eyes closed for several consecutive frames.
-
-Yawning beyond a threshold.
-
-GUI built with Tkinter for starting the monitoring process.
-
-Visual overlays showing EAR/MAR values and alerts on the live feed.
-
-⚙️ Requirements
-
+----------------------------------
+Requirements
+----------------------------------
 Install the required libraries before running:
 
 pip install opencv-python dlib imutils scipy numpy
 
-
 You also need:
+- SVMclassifier.dat (pre-trained shape predictor model file for facial landmarks).
+- A working webcam.
 
-SVMclassifier.dat (pre-trained shape predictor model file for facial landmarks).
-
-A working webcam.
-
-📂 Project Structure
+----------------------------------
+Project Structure
+----------------------------------
 
 Driver-Drowsiness-Monitoring/
 │
-├── main.py # The main application
-├── SVMclassifier.dat # Pre-trained dlib shape predictor model (place here)
-└── README.txt # Project documentation
+├── main.py              # The main application
+├── SVMclassifier.dat    # Pre-trained dlib shape predictor model (place here)
+└── README.txt           # Project documentation
 
-▶️ How to Run
-
-Clone or download the project.
-
-Place SVMclassifier.dat in the same folder as main.py.
-
-Run the application:
+----------------------------------
+How to Run
+----------------------------------
+1. Clone or download the project.
+2. Place SVMclassifier.dat in the same folder as main.py.
+3. Run the application:
 
 python main.py
 
+4. In the Tkinter window, click "Start Behaviour Monitoring Using Webcam".
+5. A webcam feed will open:
+   - If eyes close for too long → Drowsiness Alert will show.
+   - If yawning detected → "Yawning, DROWSINESS ALERT!" will display.
+6. Press Q to quit.
 
-In the Tkinter window, click Start Behaviour Monitoring Using Webcam.
+----------------------------------
+Demo (Workflow)
+----------------------------------
+1. Tkinter GUI launches.
+2. Webcam feed opens.
+3. Facial landmarks detected (eyes + mouth).
+4. EAR & MAR values computed in real-time.
+5. Alerts shown on screen if thresholds are exceeded.
 
-A webcam feed will open:
+----------------------------------
+Key Functions
+----------------------------------
+- EAR(drivereye): Calculates Eye Aspect Ratio.
+- MOR(drivermouth): Calculates Mouth Aspect Ratio.
+- startMonitoring(): Handles webcam feed, facial landmark detection, and alert logic.
 
-If eyes close for too long → Drowsiness Alert will show.
+----------------------------------
+Applications
+----------------------------------
+- Driver safety systems
+- Workplace fatigue monitoring
+- Research on human-computer interaction
 
-If yawning detected → "Yawning, DROWSINESS ALERT!" will display.
-
-Press Q to quit.
-
-📸 Demo (Workflow)
-
-Tkinter GUI launches.
-
-Webcam feed opens.
-
-Facial landmarks detected (eyes + mouth).
-
-EAR & MAR values computed in real-time.
-
-Alerts shown on screen if thresholds are exceeded.
-
-🔧 Key Functions
-
-EAR(drivereye): Calculates Eye Aspect Ratio.
-
-MOR(drivermouth): Calculates Mouth Aspect Ratio.
-
-startMonitoring(): Handles webcam feed, facial landmark detection, and alert logic.
-
-🎯 Applications
-
-Driver safety systems
-
-Workplace fatigue monitoring
-
-Research on human-computer interaction
+----------------------------------
+Disclaimer
+----------------------------------
+This project is for educational and research purposes only.
+It is not a replacement for certified driver monitoring systems in critical environments.
